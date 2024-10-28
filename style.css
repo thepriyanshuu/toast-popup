@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header {
+    font-weight: 600;
+    font-size: x-large;
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.119);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 400px;
+    margin-inline: auto;
+    padding: 10px;
+}
+main > *{
+    margin-block: 10px;
+    padding: 6px;
+    font: inherit;
+}
+.toast-container{
+    display: flex;    
+    flex-direction: column;
+    position: absolute;
+    top: 0rem;
+    left: 0.5rem;
+    max-height: 96vh;
+    overflow: hidden;
+}
+.toast-container span{
+    display: inline-block;
+    max-width: fit-content;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin-block: 0.2rem;
+    transition: 200ms all ease-in-out;
+}
+
+.toast-container span.success::before{
+    content: '✔ ';
+}
+.toast-container span.error::before{
+    content: '✘ ';
+}
+.toast-container span.warning::before{
+    content: '⚠ ';
+}
+.toast-container span.info::before{
+    content: 'ⓘ ';
+}
+
+
+.toast-container span.success{
+    background-color: #00b300;
+    color: white;
+}
+.toast-container span.error{
+    background-color: #ff0000;
+    color: white;
+}
+.toast-container span.warning{
+    background-color: #ffa500;
+    color: white;
+}
+.toast-container span.info{
+    background-color: #bdbdb2;
+    color: white;
+}
+
+.toast-container.success::before{
+    content: '⚠';
+}
+
+.toast-container span{
+    animation: from-left 100ms ease-in;
+}
+.toast-container span.to-left{
+    animation: to-left 100ms ease-in forwards;
+}
+.toast-container span.from-right{
+    animation: from-right 100ms ease-in;
+}
+.toast-container span.to-right{
+    animation: to-right 100ms ease-in forwards;
+}
+
+@keyframes from-left {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes to-left {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+    
+}
+@keyframes from-right {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes to-right {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+    
+}
+
+.close-icon{
+    cursor: pointer;
+}
+
+
+button{
+    padding: 0.5rem;
+}
+
+.toast-container.right{
+    top: 0rem;
+    left: auto;
+    right: 0.5rem;
+}
+
+.toast-container.bottom{
+    top: auto;
+    bottom: 0.5rem;
+}
